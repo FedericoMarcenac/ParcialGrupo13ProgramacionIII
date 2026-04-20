@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,26 +7,46 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    
+
     <main class="calculadoraContenedor">
         
             <h1 class="titulo">Calculadora de descuentos encadenados</h1>
-            <h4 class="subtitulo">Ingrese el precio original y uno o mas descuentos</h4>
-        
+            <h4 class="subtitulo">Ingrese el precio original y uno o más descuentos</h4>
+
             <div class="formulario">
 
                 <div class="carta">
-                    <label>Precio original</label>
+                    <label for="precio">Precio original</label>
                     <input type="number" id="precio" placeholder="Ingrese el precio original">
                 </div>
-                <div class="carta">
-                    <label>Descuento %</label>
-                    <input type="number" id="descuento" placeholder="Ingrese el descuento en porcentaje">
+
+                <!-- Contenedor dinámico de descuentos -->
+                <!-- El JS agrega/quita cartas acá con agregarCampoDescuento() -->
+                <div id="contenedor-descuentos">
+
+                    <!-- Primer descuento: está hardcodeado, el JS lo toma con .input-descuento -->
+                    <div class="carta">
+                        <label>Descuento 1 %</label>
+                        <div class="input-fila">
+                            <input type="number"
+                                    class="input-descuento"
+                                    placeholder="Ingrese el descuento en porcentaje">
+                        </div>
+                        <span class="error-campo"></span>
+                    </div>
+
                 </div>
+
+                <!-- Mensaje de error global -->
+                <p id="mensaje-error"></p>
+
+                <!-- Botones -->
                 <div class="botones">
+                    <button id="BTNagregar">+ Agregar descuento</button>
                     <button id="BTNcalcular">Calcular</button>
                     <button id="BTNlimpiar">Limpiar</button>
                 </div>
+
             </div>
 
             <div div class="resultados">
